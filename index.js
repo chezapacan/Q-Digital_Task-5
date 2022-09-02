@@ -9,7 +9,7 @@ class TU154 {
   constructor(name) {
     //Композиция
     this.params = new PlaneParams('ТУ-154', 150);
-    this.status = 'air';
+    this.status = 'land';
     this.name = name;
   }
   takeof() {
@@ -23,7 +23,7 @@ class MIG {
   constructor(name) {
     //Композиция
     this.params = new PlaneParams('МИГ', 200);
-    this.status = 'air';
+    this.status = 'land';
     this.name = name;
   }
   takeof() {
@@ -38,8 +38,9 @@ class MIG {
 }
 
 class Airport {
-  constructor() {
-    this.planes = [];
+  constructor(...initPlanesArr) {
+    // Агрегация
+    this.planes = [...initPlanesArr];
   }
   planeIn(plane) {
     if (!this.planes.includes(plane)) {
